@@ -8,7 +8,7 @@ function Nav() {
 
         {/* Logo */}
         <div className="w-3/4 flex justify-between items-center">
-        <h1 className="text-xl font-semibold">gandis Sahu</h1>
+        <h1 className="text-xl font-semibold">Subhashis Sahu</h1>
 
         <nav className="flex space-x-8 text-sm text-gray-400 mx-6">
           <a href="#" className="border-hover text-white">Home</a>
