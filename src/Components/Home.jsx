@@ -1,10 +1,30 @@
-function Home()
-{
-    return(
-        <div className="fade-in">
-            
+import Nav from "./Nav";
+import Hero from "./Hero";
+import Work from "./Work";
 
-        </div>
-    )
+import About from "./About";
+import Contact from "./Contact";
+import Footer from "./Footer";
+function Home() {
+  return (
+    <div className="min-h-screen w-3/4 flex flex-col justify-center items-center  bg-[#1c222a] text-gray-200 font-sans m-auto">
+      {/* Navbar */}
+      <Nav />
+
+      {/* Hero Section */}
+      <Hero />
+
+      {/* About Section */}
+
+      {/* Works Section */}
+      <Work />
+      <About />
+      {/* Contact Section */}
+      <Contact />
+
+      {/* Footer */}
+      <Footer />
+    </div>
+  );
 }
 export default Home;

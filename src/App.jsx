@@ -1,34 +1,29 @@
-import React from "react";
-import Nav from "./Components/Nav";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./Components/Home";
-import Hero from "./Components/Hero";
-import About from "./Components/About";
-import Work from "./Components/Work";
-import Contact from "./Components/Contact";
-import Footer from "./Components/Footer";
+import AdminLogin from "./Admin/AdminLogin";
+import Dashboard from "./Admin/Dashboard";
+import ProtectedRoute from "./Admin/ProtectedRoute";
 
-export default function Portfolio() {
+function App() {
   return (
-    <div className="min-h-screen flex flex-col justify-center items-center  bg-[#1c222a] text-gray-200 font-sans m-auto" >
-      {/* Navbar */}
-      <Nav/>
-      <Home/>
+    <BrowserRouter>
+      <Routes>
+        {/* Public */}
+        <Route path="/" element={<Home />} />
+        <Route path="/admin/login" element={<AdminLogin />} />
 
-      {/* Hero Section */}
-      <Hero/>
-
-      {/* About Section */}
-      
-
-      {/* Works Section */}
-      <Work/>
-      <About/>
-      {/* Contact Section */}
-      <Contact/>
-      
-      {/* Footer */}
-      <Footer/>
-     
-    </div>
+        {/* Protected */}
+        <Route
+          path="/admin/dashboard"
+          element={
+            <ProtectedRoute>
+              <Dashboard />
+            </ProtectedRoute>
+          }
+        />
+      </Routes>
+    </BrowserRouter>
   );
 }
+
+export default App;

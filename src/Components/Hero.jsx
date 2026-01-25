@@ -26,14 +26,14 @@ function Hero() {
         <div className="relative flex justify-center items-center">
           {/* Radial Gradient */}
           <div
-            className="absolute w-[420px] h-[420px] rounded-full bg-[radial-gradient(circle,rgba(45,212,191,0.7)_0%,rgba(45,212,191,0.35)_35%,rgba(45,212,191,0.15)_55%,transparent_75%)] "
+            className="absolute w-96 h-96 rounded-full bg-[radial-gradient(circle,rgba(45,212,191,0.7)_0%,rgba(45,212,191,0.35)_35%,rgba(45,212,191,0.15)_55%,transparent_75%)] "
           ></div>
 
           {/* Image */}
           <img
             src={subh}
             alt="Designer"
-            className="relative w-80 h-80 rounded-full grayscale z-10 hover:transform"
+            className="relative w-72 h-72 rounded-full grayscale z-10 hover:transform"
           />
         </div>
       </div>
