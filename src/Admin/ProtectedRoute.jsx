@@ -5,7 +5,7 @@ export default function ProtectedRoute({ children }) {
   const [allowed, setAllowed] = useState(null);
 
   useEffect(() => {
-    fetch("http://localhost:8080/admin/check", {
+    fetch("https://subhashissahu.onrender.com/admin/check", {
       credentials: "include",
     })
       .then((res) => setAllowed(res.ok))

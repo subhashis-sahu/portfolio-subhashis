@@ -18,7 +18,7 @@ function AddWork() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const res = await fetch("http://localhost:8080/admin/works", {
+    const res = await fetch("https://subhashissahu.onrender.com/admin/works", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -43,7 +43,7 @@ function AddWork() {
         placeholder="Work ID"
         value={work.id}
         onChange={handleChange}
-        required
+        
       />
 
       <input

@@ -17,7 +17,7 @@ function Contact() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const res = await fetch("http://localhost:8080/public/contact", {
+    const res = await fetch("https://subhashissahu.onrender.com/public/contact", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

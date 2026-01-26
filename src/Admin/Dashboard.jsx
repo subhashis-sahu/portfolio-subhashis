@@ -4,7 +4,7 @@ export default function AdminDashboard() {
   const navigate = useNavigate();
 
   const logout = async () => {
-    await fetch("http://localhost:8080/admin/logout", {
+    await fetch("https://subhashissahu.onrender.com/admin/logout", {
       method: "POST",
       credentials: "include",
     });

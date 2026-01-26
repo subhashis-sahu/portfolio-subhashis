@@ -4,7 +4,7 @@ function Work() {
   const [works, setWorks] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:8080/public/works")
+    fetch("https://subhashissahu.onrender.com/public/works")
       .then((res) => {
         if (!res.ok) throw new Error("Failed to fetch works");
         return res.json();
