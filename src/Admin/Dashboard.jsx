@@ -4,12 +4,12 @@ export default function AdminDashboard() {
   const navigate = useNavigate();
 
   const logout = async () => {
-    await fetch("https://subhashissahu.onrender.com/admin/logout", {
+    await fetch("https://subhashissahu.onrender.com/api/admin/logout", {
       method: "POST",
       credentials: "include",
     });
 
-    navigate("/admin/login");
+    navigate("https://subhashissahu.onrender.com/api/admin/login");
   };
 
   return (

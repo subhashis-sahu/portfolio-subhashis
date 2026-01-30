@@ -18,7 +18,7 @@ function AddWork() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const res = await fetch("https://subhashissahu.onrender.com/admin/works", {
+    const res = await fetch("https://subhashissahu.onrender.com/api/admin/works", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"

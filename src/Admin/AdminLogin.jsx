@@ -7,21 +7,33 @@ export default function AdminLogin() {
   const navigate = useNavigate();
 
   const handleLogin = async () => {
-    const res = await fetch("https://subhashissahu.onrender.com/admin/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/x-www-form-urlencoded",
-      },
-      credentials: "include", // 🔥 REQUIRED
-      body: new URLSearchParams({
-        username,
-        password,
-      }),
-    });
+    try {
+      const res = await fetch(
+        "https://subhashissahu.onrender.com/api/admin/login",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            username,
+            password,
+          }),
+        }
+      );
 
-    if (res.ok) {
-      navigate("/admin/dashboard"); // ✅ React routing
-    } else {
+      if (!res.ok) {
+        throw new Error("Invalid credentials");
+      }
+
+      const data = await res.json();
+      const token = data.token; // 👈 backend must return this
+
+      // ✅ Store JWT
+      localStorage.setItem("adminToken", token);
+
+      navigate("https://subhashissahu.onrender.com/api/admin/dashboard");
+    } catch {
       alert("Invalid credentials");
     }
   };
