@@ -36,7 +36,7 @@ function AddWork() {
       if (!res.ok) throw new Error();
 
       alert("Work added successfully ✅");
-      setWork({ title: "", description: "", techStack: "" });
+      setWork({ tittle: "", describtion: "", techStack: "" });
     } catch {
       alert("Failed to add work ❌");
     } finally {
@@ -56,7 +56,7 @@ function AddWork() {
             type="text"
             name="title"
             placeholder="Project title"
-            value={work.title}
+            value={work.tittle}
             onChange={handleChange}
             required
             className="w-full border rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-black"
@@ -69,7 +69,7 @@ function AddWork() {
           <textarea
             name="description"
             placeholder="Short project description"
-            value={work.description}
+            value={work.describtion}
             onChange={handleChange}
             required
             rows={4}
