@@ -2,8 +2,8 @@ import { useState } from "react";
 
 function AddWork() {
   const [work, setWork] = useState({
-    title: "",
-    description: "",
+    tittle: "",
+    describtion: "",
     techStack: "",
   });
 
@@ -54,7 +54,7 @@ function AddWork() {
           <label className="block text-sm font-medium mb-1">Title</label>
           <input
             type="text"
-            name="title"
+            name="tittle"
             placeholder="Project title"
             value={work.tittle}
             onChange={handleChange}
@@ -67,7 +67,7 @@ function AddWork() {
         <div>
           <label className="block text-sm font-medium mb-1">Description</label>
           <textarea
-            name="description"
+            name="describtion"
             placeholder="Short project description"
             value={work.describtion}
             onChange={handleChange}
