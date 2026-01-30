@@ -2,78 +2,106 @@ import { useState } from "react";
 
 function AddWork() {
   const [work, setWork] = useState({
-    id: "",
-    tittle: "",
-    describtion: "",
-    techStack: ""
+    title: "",
+    description: "",
+    techStack: "",
   });
+
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
     setWork({
       ...work,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
 
-    const res = await fetch("https://subhashissahu.onrender.com/api/admin/works", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      credentials: "include", // 🔥 IMPORTANT (session)
-      body: JSON.stringify(work)
-    });
+    try {
+      const res = await fetch(
+        "https://subhashissahu.onrender.com/api/admin/works",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${localStorage.getItem("adminToken")}`,
+          },
+          body: JSON.stringify(work),
+        }
+      );
 
-    if (res.ok) {
+      if (!res.ok) throw new Error();
+
       alert("Work added successfully ✅");
-      setWork({ id: "", tittle: "", describtion: "", techStack: "" });
-    } else {
+      setWork({ title: "", description: "", techStack: "" });
+    } catch {
       alert("Failed to add work ❌");
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4 max-w-md">
-      <input
-        type="number"
-        name="id"
-        placeholder="Work ID"
-        value={work.id}
-        onChange={handleChange}
-        
-      />
+    <div className="bg-white shadow-lg rounded-xl p-6 max-w-lg">
+      <h2 className="text-xl font-semibold mb-4">Add New Work</h2>
 
-      <input
-        type="text"
-        name="tittle"
-        placeholder="Title"
-        value={work.tittle}
-        onChange={handleChange}
-        required
-      />
+      <form onSubmit={handleSubmit} className="space-y-5">
+        {/* Title */}
+        <div>
+          <label className="block text-sm font-medium mb-1">Title</label>
+          <input
+            type="text"
+            name="title"
+            placeholder="Project title"
+            value={work.title}
+            onChange={handleChange}
+            required
+            className="w-full border rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-black"
+          />
+        </div>
 
-      <textarea
-        name="describtion"
-        placeholder="Description"
-        value={work.describtion}
-        onChange={handleChange}
-        required
-      />
+        {/* Description */}
+        <div>
+          <label className="block text-sm font-medium mb-1">Description</label>
+          <textarea
+            name="description"
+            placeholder="Short project description"
+            value={work.description}
+            onChange={handleChange}
+            required
+            rows={4}
+            className="w-full border rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-black"
+          />
+        </div>
 
-      <input
-        type="text"
-        name="techStack"
-        placeholder="Tech Stack (React, Spring Boot, MySQL)"
-        value={work.techStack}
-        onChange={handleChange}
-        required
-      />
+        {/* Tech Stack */}
+        <div>
+          <label className="block text-sm font-medium mb-1">Tech Stack</label>
+          <input
+            type="text"
+            name="techStack"
+            placeholder="React, Spring Boot, PostgreSQL"
+            value={work.techStack}
+            onChange={handleChange}
+            required
+            className="w-full border rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-black"
+          />
+        </div>
 
-      <button type="submit">Add Work</button>
-    </form>
+        {/* Submit */}
+        <button
+          type="submit"
+          disabled={loading}
+          className={`w-full py-2 rounded-lg text-white transition
+            ${loading ? "bg-gray-400" : "bg-black hover:bg-gray-800"}`}
+        >
+          {loading ? "Adding..." : "Add Work"}
+        </button>
+      </form>
+    </div>
   );
 }
 
