@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./Components/Home";
 import AdminLogin from "./Admin/AdminLogin";
-import Dashboard from "./Admin/Dashboard";
+import AdminDashboard from "./Admin/Dashboard";
 import ProtectedRoute from "./Admin/ProtectedRoute";
 
 function App() {
@@ -17,7 +17,7 @@ function App() {
           path="/admin/dashboard"
           element={
             <ProtectedRoute>
-              <Dashboard />
+              <AdminDashboard />
             </ProtectedRoute>
           }
         />

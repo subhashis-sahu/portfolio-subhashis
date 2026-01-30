@@ -1,15 +1,15 @@
 import { useNavigate } from "react-router-dom";
 import AddWork from "./AddWork";
+
 export default function AdminDashboard() {
   const navigate = useNavigate();
 
-  const logout = async () => {
-    await fetch("https://subhashissahu.onrender.com/api/admin/logout", {
-      method: "POST",
-      credentials: "include",
-    });
+  const logout = () => {
+    // 🔐 JWT logout = remove token
+    localStorage.removeItem("adminToken");
 
-    navigate("https://subhashissahu.onrender.com/api/admin/login");
+    // ✅ Redirect to frontend login
+    navigate("/admin/login");
   };
 
   return (
@@ -22,9 +22,9 @@ export default function AdminDashboard() {
       >
         Logout
       </button>
-      <div>
-        <AddWork/>
 
+      <div className="mt-6">
+        <AddWork />
       </div>
     </div>
   );

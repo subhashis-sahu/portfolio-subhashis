@@ -2,40 +2,37 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 export default function AdminLogin() {
-  const [username, setUsername] = useState("");
+  const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
   const handleLogin = async () => {
-    try {
-      const res = await fetch(
-        "https://subhashissahu.onrender.com/api/admin/login",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            username,
-            password,
-          }),
-        }
-      );
-
-      if (!res.ok) {
-        throw new Error("Invalid credentials");
+    const res = await fetch(
+      "https://subhashissahu.onrender.com/api/admin/login",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          userName,
+          password,
+        }),
       }
+    );
 
-      const data = await res.json();
-      const token = data.token; // 👈 backend must return this
-
-      // ✅ Store JWT
-      localStorage.setItem("adminToken", token);
-
-      navigate("https://subhashissahu.onrender.com/api/admin/dashboard");
-    } catch {
+    if (!res.ok) {
       alert("Invalid credentials");
+      return;
     }
+
+    const data = await res.json();
+
+    // ✅ Save JWT
+    localStorage.setItem("adminToken", data.token);
+
+    // ✅ Go to FRONTEND route (not API)
+    navigate("/admin/dashboard");
   };
 
   return (
@@ -46,7 +43,7 @@ export default function AdminLogin() {
         <input
           placeholder="Username"
           className="border p-2 w-full mb-2"
-          onChange={(e) => setUsername(e.target.value)}
+          onChange={(e) => setUserName(e.target.value)}
         />
 
         <input
