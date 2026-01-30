@@ -1,6 +1,7 @@
 import React from "react";
 import subh from "../assets/subhashis.png";
 
+
 function Hero() {
   return (
     <section className="w-full min-h-screen flex items-center justify-center">
@@ -15,19 +16,33 @@ function Hero() {
             mobile applications.
           </p>
           <div className="mt-8 flex gap-4">
-            <button className="bg-teal-500 zoom-hover  px-6 py-2 rounded text-black font-medium">
+            <button
+              onClick={() =>
+                window.open(
+                  "https://mail.google.com/mail/?view=cm&fs=1&to=sahusubha371@gmail.com&su=Hiring%20Inquiry",
+                  "_blank",
+                )
+              }
+              className="bg-teal-500 zoom-hover  px-6 py-2 rounded text-black font-medium"
+            >
               Hire me
             </button>
-            <button className="border border-gray-600 px-6 py-2 rounded hover:bg-gray-800 zoom-hover">
+            <button
+              onClick={() => {
+                const link = document.createElement("a");
+                link.href = "subhashis_resume.pdf";
+                link.download = "subhashis_resume.pdf";
+                link.click();
+              }}
+              className="border border-gray-600 px-6 py-2 rounded hover:bg-gray-800 zoom-hover"
+            >
               Download CV
             </button>
           </div>
         </div>
         <div className="relative flex justify-center items-center">
           {/* Radial Gradient */}
-          <div
-            className="absolute w-96 h-96 rounded-full bg-[radial-gradient(circle,rgba(45,212,191,0.7)_0%,rgba(45,212,191,0.35)_35%,rgba(45,212,191,0.15)_55%,transparent_75%)] "
-          ></div>
+          <div className="absolute w-96 h-96 rounded-full bg-[radial-gradient(circle,rgba(45,212,191,0.7)_0%,rgba(45,212,191,0.35)_35%,rgba(45,212,191,0.15)_55%,transparent_75%)] "></div>
 
           {/* Image */}
           <img

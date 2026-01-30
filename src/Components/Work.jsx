@@ -14,7 +14,7 @@ function Work() {
   }, []);
 
   return (
-    <div className="w-full px-6 mt-4" id="works">
+    <div className="min-h-screen px-6  scroll-mt-20" id="works">
       <h3 className="text-4xl font-bold leading-tight mb-6">MY RECENT WORKS</h3>
       
       <div

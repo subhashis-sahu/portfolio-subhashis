@@ -2,7 +2,7 @@ import React from "react";
 
 function About() {
   return (
-    <section id="about" className="min-h-screen">
+    <section id="about" className="min-h-screen scroll-mt-20">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10 px-10 py-20">
         <div className="flex justify-center">
           <img src="/illustrations/about.png" alt="About" className="w-72" />

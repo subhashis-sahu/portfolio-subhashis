@@ -7,7 +7,7 @@ import Contact from "./Contact";
 import Footer from "./Footer";
 function Home() {
   return (
-    <div className="min-h-screen w-3/4 flex flex-col justify-center items-center  bg-[#1c222a] text-gray-200 font-sans m-auto">
+    <div className=" min-h-screen w-3/4 flex flex-col justify-center items-center  bg-[#1c222a] text-gray-200 font-sans m-auto">
       {/* Navbar */}
       <Nav />
 
