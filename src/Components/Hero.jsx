@@ -4,7 +4,7 @@ import subh from "../assets/subhashis.png";
 
 function Hero() {
   return (
-    <section className="w-full min-h-screen flex items-center justify-center">
+    <section className="w-full min-h-screen flex items-center justify-center" id="hero">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10 px-10 py-20 items-center align-center">
         <div>
           <h2 className="text-4xl font-bold leading-tight">
