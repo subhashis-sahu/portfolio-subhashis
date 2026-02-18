@@ -60,7 +60,7 @@ function Work() {
                 transition-all
                 duration-300
                 transform
-                hover:scale-125
+                hover:scale-110
                 hover:z-20
                 group
                 border-[1px]

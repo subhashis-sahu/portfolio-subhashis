@@ -74,9 +74,7 @@ function Nav() {
         <div className="mt-3 rounded-2xl bg-[#1c222a]/10 backdrop-blur-lg border border-white/10 md:hidden">
           <nav className="flex flex-col items-center space-y-4 py-4 text-sm text-white">
 
-            <Link to="/" onClick={() => setOpen(false)}>
-              Home
-            </Link>
+            
             <button onClick={() => handleScroll("hero")}>
               Home
             </button>
