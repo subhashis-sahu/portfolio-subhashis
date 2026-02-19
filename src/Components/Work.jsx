@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-
+import Skeleton from "@mui/material/Skeleton";
 function Work() {
   const [works, setWorks] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -22,13 +22,40 @@ function Work() {
   }, []);
 
   return (
-    <div className="min-h-screen px-6 scroll-mt-20" id="works">
+    <div className="min-h-screen px-6 scroll-mt-20 w-full" id="works">
       <h3 className="text-4xl font-bold leading-tight mb-6">MY RECENT WORKS</h3>
 
       {/* ✅ Loading State */}
       {loading && (
-        <div className="flex justify-center items-center h-40">
-          <div className="w-12 h-12 border-4 border-gray-600 border-t-indigo-500 rounded-full animate-spin"></div>
+        <div
+          className="grid
+            grid-cols-1
+            sm:grid-cols-2
+            md:grid-cols-3
+            lg:grid-cols-4
+            gap-6"
+        >
+          {Array.from({ length: 8 }).map((_, index) => (
+            <div
+              key={index}
+              className="
+          bg-[#1c222a]
+          rounded-lg
+          p-6
+          border
+          min-h-[180px]
+        "
+            >
+              <Skeleton height={28} sx={{ bgcolor: "#2a2f36", mb: 2 }} />
+              <Skeleton height={20} sx={{ bgcolor: "#2a2f36", mb: 1 }} />
+              <Skeleton
+                height={20}
+                width="70%"
+                sx={{ bgcolor: "#2a2f36", mb: 2 }}
+              />
+              <Skeleton height={16} width="50%" sx={{ bgcolor: "#2a2f36" }} />
+            </div>
+          ))}
         </div>
       )}
 
