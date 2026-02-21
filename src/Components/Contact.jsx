@@ -57,7 +57,7 @@ function Contact() {
   return (
     <div
       id="contact"
-      className="px-10 py-20 grid grid-cols-1 md:grid-cols-2 gap-10 items-center scroll-mt-20"
+      className="px-10 py-20 grid grid-cols-1 w-full md:w-3/4 md:grid-cols-2 gap-10 items-center scroll-mt-20"
     >
       <div>
         <h3 className="text-3xl font-semibold mb-4">Got a project in mind?</h3>

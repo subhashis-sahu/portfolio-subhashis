@@ -25,7 +25,7 @@ import { SiOpenjdk } from "react-icons/si";
 
 function AllSkill() {
   return (
-    <div className="flex flex-col gap-1 items-center justify-center py-12">
+    <div className="flex flex-col gap-1 w-full md:w-3/4 items-center justify-center py-12">
       <p className="text-gray-400 uppercase text-sm">What I Offer</p>
       <p className="text-3xl font-bold mb-8">My Services</p>
 

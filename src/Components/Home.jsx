@@ -10,7 +10,7 @@ import FAQ from "./FAQ";
 
 function Home() {
   return (
-    <div className="min-h-screen  w-fit md:w-3/4 flex flex-col justify-center items-center  bg-[#1c222a] text-gray-200 font-sans m-auto">
+    <div className="min-h-screen  flex flex-col justify-center items-center  bg-[#1c222a] text-gray-200 font-sans m-auto">
       {/* Navbar */}
       <Nav />
 

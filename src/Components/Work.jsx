@@ -27,7 +27,7 @@ function Work() {
   }, []);
 
   return (
-    <div className=" px-6 scroll-mt-20 w-full" id="works">
+    <div className=" px-6 scroll-mt-20  md:w-3/4" id="works">
       <h3 className="text-4xl font-bold leading-tight mb-6">MY RECENT WORKS</h3>
 
       {loading && (
