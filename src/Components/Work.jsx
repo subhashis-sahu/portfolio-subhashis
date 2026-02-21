@@ -1,9 +1,14 @@
 import React, { useEffect, useState } from "react";
 import Skeleton from "@mui/material/Skeleton";
+import { useNavigate } from "react-router-dom";
+
+
 function Work() {
   const [works, setWorks] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetch("https://subhashissahu.onrender.com/api/public/works")
@@ -22,29 +27,15 @@ function Work() {
   }, []);
 
   return (
-    <div className="min-h-screen px-6 scroll-mt-20 w-full" id="works">
+    <div className=" px-6 scroll-mt-20 w-full" id="works">
       <h3 className="text-4xl font-bold leading-tight mb-6">MY RECENT WORKS</h3>
 
-      {/* ✅ Loading State */}
       {loading && (
-        <div
-          className="grid
-            grid-cols-1
-            sm:grid-cols-2
-            md:grid-cols-3
-            lg:grid-cols-4
-            gap-6"
-        >
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {Array.from({ length: 8 }).map((_, index) => (
             <div
               key={index}
-              className="
-          bg-[#1c222a]
-          rounded-lg
-          p-6
-          border
-          min-h-[180px]
-        "
+              className="bg-[#1c222a] rounded-lg p-6 border border-gray-700 min-h-[180px]"
             >
               <Skeleton height={28} sx={{ bgcolor: "#2a2f36", mb: 2 }} />
               <Skeleton height={20} sx={{ bgcolor: "#2a2f36", mb: 1 }} />
@@ -59,49 +50,50 @@ function Work() {
         </div>
       )}
 
-      {/* ❌ Error State */}
       {error && <p className="text-red-500 mb-6">{error}</p>}
 
-      {/* ✅ Works Grid */}
       {!loading && !error && (
-        <div
-          className="
-            grid
-            grid-cols-1
-            sm:grid-cols-2
-            md:grid-cols-3
-            lg:grid-cols-4
-            gap-6
-            overflow-visible
-          "
-        >
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {works.map((work) => (
             <div
               key={work.id}
+              onClick={() => navigate(`/work/${work.id}`)}
               className="
+                cursor-pointer
                 bg-[#1c222a]
-                h-fit
-                shadow-white
                 rounded-lg
                 p-6
                 transition-all
                 duration-300
                 transform
-                hover:scale-110
+                hover:scale-105
                 hover:z-20
                 group
-                border-[1px]
+                border
+                border-gray-700
               "
             >
-              <p className="text-lg text-white font-medium mb-2 line-clamp-1 group-hover:line-clamp-none">
+              <p className="text-lg text-white font-medium mb-2 line-clamp-1">
                 {work.tittle}
               </p>
 
-              <p className="text-sm text-gray-400 mb-2 line-clamp-2 group-hover:line-clamp-none">
+              <p className="text-sm text-gray-400 mb-2 line-clamp-2 ">
                 {work.describtion}
               </p>
 
-              <p className="text-xs text-gray-500">Tech: {work.techStack}</p>
+              <div className="flex flex-wrap gap-2 mt-3">
+                {work.techStack
+                  ?.split(",")
+                  .slice(0, 4)
+                  .map((tech, index) => (
+                    <span
+                      key={index}
+                      className="text-xs px-2.5 py-1 bg-gray-800/70 text-gray-300 rounded-md border border-gray-700"
+                    >
+                      {tech.trim()}
+                    </span>
+                  ))}
+              </div>
             </div>
           ))}
         </div>

@@ -8,7 +8,7 @@ function Hero() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10 px-10 py-20 items-center align-center">
         <div>
           <h2 className="text-4xl font-bold leading-tight">
-            BACKEND <br />
+            JAVA <br />
             <span className="text-teal-400">DEVELOPER</span>
           </h2>
           <p className="mt-6 text-gray-400 max-w-md">

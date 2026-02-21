@@ -46,3 +46,34 @@ body {
   color: white;
 }
 
+/* Hide scrollbar */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+@keyframes infiniteScroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.scroll-wrapper {
+  animation: infiniteScroll 30s linear infinite;
+}
+
+.scroll-wrapper:hover {
+  animation-play-state: paused;
+}
+
+.skill-box {
+  @apply w-16 h-16 rounded-full flex items-center justify-center
+         hover:scale-110 transition duration-300 cursor-pointer;
+}

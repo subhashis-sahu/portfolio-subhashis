@@ -5,12 +5,12 @@ import Layout from "./Components/Layout";
 import AdminLogin from "./Admin/AdminLogin";
 import AdminDashboard from "./Admin/Dashboard";
 import ProtectedRoute from "./Admin/ProtectedRoute";
-
+import Work from "./Components/Work";
+import WorkDetails from "./Components/WorkDetails";
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-
         {/* Layout Wrapper */}
         <Route element={<Layout />}>
           <Route path="/" element={<Home />} />
@@ -27,7 +27,10 @@ function App() {
             </ProtectedRoute>
           }
         />
-
+      </Routes>
+      <Routes>
+        
+        <Route path="/work/:id" element={<WorkDetails />} />
       </Routes>
     </BrowserRouter>
   );

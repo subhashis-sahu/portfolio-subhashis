@@ -5,7 +5,9 @@ import Work from "./Work";
 import About from "./About";
 import Contact from "./Contact";
 import Footer from "./Footer";
-import Journey from "./Journey";
+import AllSkill from "./AllSkill";
+import FAQ from "./FAQ";
+
 function Home() {
   return (
     <div className="min-h-screen  w-fit md:w-3/4 flex flex-col justify-center items-center  bg-[#1c222a] text-gray-200 font-sans m-auto">
@@ -19,9 +21,12 @@ function Home() {
 
       {/* Works Section */}
       <Work />
+      <AllSkill />
       <About />
+      <FAQ/>
       {/* Contact Section */}
       <Contact />
+      
       
 
       {/* Footer */}
